@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://contents/entities/buoyant/base_buoyant.tscn" type="PackedScene" id=1]
+[ext_resource path="res://contents/entities/vessel/base_vessel.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+[node name="BaseVessel" groups=["vessel"] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="BowPosition" type="Position2D" parent="." index="1"]
+position = Vector2( 0, -20 )
+
+[node name="AftPosition" type="Position2D" parent="." index="2"]
+position = Vector2( 0, 20 )
