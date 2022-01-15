@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "Appender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appender.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "BaseBuoyant",
 "language": "GDScript",
@@ -17,28 +22,87 @@ _global_script_classes=[ {
 "base": "BaseBuoyant",
 "class": "BaseVessel",
 "language": "GDScript",
-"path": "res://contents/entities/vessel/base_vessel.gd"
+"path": "res://contents/entities/base_vessel/base_vessel.gd"
+}, {
+"base": "Appender",
+"class": "ConsoleAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/console_appender.gd"
+}, {
+"base": "Appender",
+"class": "FileAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/file_appender.gd"
+}, {
+"base": "TextureRect",
+"class": "HUDRudde",
+"language": "GDScript",
+"path": "res://contents/gui/rudder/rudder.gd"
+}, {
+"base": "Layout",
+"class": "HtmlLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/html_layout.gd"
+}, {
+"base": "Reference",
+"class": "Layout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layout.gd"
+}, {
+"base": "Reference",
+"class": "Message",
+"language": "GDScript",
+"path": "res://addons/gs_logger/message.gd"
+}, {
+"base": "Layout",
+"class": "PatternLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/pattern_layout.gd"
 }, {
 "base": "BaseVessel",
 "class": "PlayerVessel",
 "language": "GDScript",
 "path": "res://contents/entities/player_vessel/player_vessel.gd"
+}, {
+"base": "Reference",
+"class": "Utils",
+"language": "GDScript",
+"path": "res://addons/gs_logger/utils.gd"
 } ]
 _global_script_class_icons={
+"Appender": "",
 "BaseBuoyant": "",
 "BaseVessel": "",
-"PlayerVessel": ""
+"ConsoleAppender": "",
+"FileAppender": "",
+"HUDRudde": "",
+"HtmlLayout": "",
+"Layout": "",
+"Message": "",
+"PatternLayout": "",
+"PlayerVessel": "",
+"Utils": ""
 }
 
 [application]
 
 config/name="project"
+run/main_scene="res://contents/systems/main/main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Logger="*res://addons/gs_logger/logger.gd"
+Signals="*res://contents/systems/singletons/signals.gd"
 
 [display]
 
 window/size/width=1680
 window/size/height=1080
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gs_logger/plugin.cfg" )
 
 [input]
 
@@ -69,6 +133,13 @@ turn_port={
 2d_physics/layer_2="structures"
 2d_physics/layer_3="land"
 2d_physics/layer_4="items"
+
+[logger]
+
+level="TRACE"
+level.release="ERROR"
+format="FULL"
+format.release="DEFAULT"
 
 [physics]
 

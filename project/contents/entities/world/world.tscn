@@ -9,3 +9,4 @@
 [node name="ParallaxLayer" type="ParallaxLayer" parent="OceanBackground"]
 
 [node name="PlayerVessel2D" parent="." groups=["buoyant"] instance=ExtResource( 1 )]
+position = Vector2( 795, 481 )
