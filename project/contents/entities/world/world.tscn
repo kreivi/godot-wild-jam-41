@@ -6,7 +6,8 @@
 
 [node name="OceanBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="OceanBackground"]
+[node name="DeepParallax" type="ParallaxLayer" parent="OceanBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
 
-[node name="PlayerVessel2D" parent="." groups=["buoyant"] instance=ExtResource( 1 )]
-position = Vector2( 795, 481 )
+[node name="PlayerVessel2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 840, 540 )

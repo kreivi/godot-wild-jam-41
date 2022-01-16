@@ -9,11 +9,16 @@ export var sail_raise_speed := 0.0075
 export var sail_lower_speed := 0.04
 ## How fast is it to turn the rudder
 export var rudder_turn_speed := 0.005
+## Maximum angle the rudder sprite will rotate
+export var rudder_sprite_max_angle = 30.0
 
 ## Current height of the sail.
 var sail_height := 0.0 setget set_sail_height
 ## Current position of the rudder.
 var rudder_position := 0.0 setget set_rudder_position
+
+## Reference to the rudder sprite
+onready var rudder_sprite: Sprite = $Rudder
 
 
 ## Safely set sail height (remains within normalized range)
@@ -51,5 +56,7 @@ func adjust_rudder(input: float) -> float:
 
 
 func _process_rudder(delta: float) -> void:
+	# TODO: Do not rotaste if stationary
 	rotate(deg2rad(rudder_position * turn_speed * delta))
+	rudder_sprite.rotation_degrees = rudder_sprite_max_angle * -rudder_position
 	pass

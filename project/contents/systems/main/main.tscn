@@ -8,6 +8,7 @@
 
 [node name="Gamelayer" type="CanvasLayer" parent="."]
 layer = 0
+follow_viewport_enable = true
 
 [node name="World" parent="Gamelayer" instance=ExtResource( 1 )]
 
