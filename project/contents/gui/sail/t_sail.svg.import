@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rudder.svg-9bb6800cb37bf7a717ab7b73ac5feffc.stex"
+path="res://.import/t_sail.svg-9323fe40439646fcfc91dc621ac91a42.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://contents/gui/rudder/rudder.svg"
-dest_files=[ "res://.import/rudder.svg-9bb6800cb37bf7a717ab7b73ac5feffc.stex" ]
+source_file="res://contents/gui/sail/t_sail.svg"
+dest_files=[ "res://.import/t_sail.svg-9323fe40439646fcfc91dc621ac91a42.stex" ]
 
 [params]
 

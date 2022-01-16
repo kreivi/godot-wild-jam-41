@@ -8,7 +8,7 @@ export var sail_raise_speed := 0.0075
 ## How fast is it to lower the sail
 export var sail_lower_speed := 0.04
 ## How fast is it to turn the rudder
-export var rudder_turn_speed := 0.02
+export var rudder_turn_speed := 0.005
 
 ## Current height of the sail.
 var sail_height := 0.0 setget set_sail_height

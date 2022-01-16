@@ -2,19 +2,21 @@
 class_name PlayerVessel
 extends BaseVessel
 
-## Keep rudder position in store so we don't spam the signal
-var last_rudder_pos := 0.0
-
-func _process(_delta: float) -> void:
-	if not is_equal_approx(last_rudder_pos, rudder_position):
-		last_rudder_pos = rudder_position
-		Signals.emit_signal("rudder_turned", last_rudder_pos)
-	pass
+## Keep rudder position stored so we don't spam the signal unnecessarily
+var last_rudder_pos := rudder_position
+## Keep sail height stored so we don't spam the signal unnecessarily
+var last_sail_height := sail_height
 
 ## Processing of `PlayerVessel`
 func _physics_process(_delta: float) -> void:
 	adjust_rudder(_get_rudder_input())
 	adjust_sails(_get_sail_input())
+	if not is_equal_approx(last_rudder_pos, rudder_position):
+		last_rudder_pos = rudder_position
+		Signals.emit_signal("rudder_turned", last_rudder_pos)
+	if not is_equal_approx(last_sail_height, sail_height):
+		last_sail_height = sail_height
+		Signals.emit_signal("sail_adjusted", last_sail_height)
 	pass
 
 

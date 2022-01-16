@@ -35,9 +35,14 @@ _global_script_classes=[ {
 "path": "res://addons/gs_logger/appenders/file_appender.gd"
 }, {
 "base": "TextureRect",
-"class": "HUDRudde",
+"class": "HUDRudder",
 "language": "GDScript",
 "path": "res://contents/gui/rudder/rudder.gd"
+}, {
+"base": "TextureRect",
+"class": "HUDSail",
+"language": "GDScript",
+"path": "res://contents/gui/sail/sail.gd"
 }, {
 "base": "Layout",
 "class": "HtmlLayout",
@@ -75,7 +80,8 @@ _global_script_class_icons={
 "BaseVessel": "",
 "ConsoleAppender": "",
 "FileAppender": "",
-"HUDRudde": "",
+"HUDRudder": "",
+"HUDSail": "",
 "HtmlLayout": "",
 "Layout": "",
 "Message": "",
