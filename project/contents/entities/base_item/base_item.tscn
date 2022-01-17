@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://contents/entities/buoyant/base_buoyant.tscn" type="PackedScene" id=1]
+[ext_resource path="res://contents/entities/base_item/base_item.gd" type="Script" id=2]
+[ext_resource path="res://contents/systems/button_prompt/button_prompt.tscn" type="PackedScene" id=3]
+
+[node name="BaseItem" groups=["item"] instance=ExtResource( 1 )]
+collision_layer = 8
+collision_mask = 14
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+rotation = 1.5708
+
+[node name="CollisionShape2D" parent="." index="1"]
+rotation = 1.5708
+
+[node name="PickupPrompt" parent="." index="2" instance=ExtResource( 3 )]
+visible = false
+action_name = "pickup"

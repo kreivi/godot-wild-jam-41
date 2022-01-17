@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://contents/entities/base_item/base_item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://contents/entities/drifting_item/drifting_item.gd" type="Script" id=2]
+
+[node name="DriftingItem" groups=["drifting"] instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+max_speed = 20.0
+
+[node name="PickupPrompt" parent="." index="2"]
+frame = 1

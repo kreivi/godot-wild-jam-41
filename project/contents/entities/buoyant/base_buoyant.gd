@@ -3,7 +3,7 @@ class_name BaseBuoyant
 extends KinematicBody2D
 
 ## What is the maximum speed.
-export var max_speed := 30.0
+export var max_speed := 60.0
 ## Linear drag of the buoyant.
 export var linear_damp: float = ProjectSettings.get_setting("physics/2d/default_linear_damp")
 
@@ -12,7 +12,7 @@ var velocity := Vector2.ZERO
 ## Delta velocity
 var delta_velocity := Vector2.ZERO
 
-onready var _trail := $Trail
+#onready var _trail := $Trail
 
 ## Processing of the `BaseBuoyant`
 func _physics_process(delta: float) -> void:
@@ -20,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	velocity += delta_velocity
 	velocity = move_and_slide(velocity.clamped(max_speed))
 	_reset()
-	_trail.add_point(global_position)
+#	_trail.add_point(global_position)
 	pass
 
 

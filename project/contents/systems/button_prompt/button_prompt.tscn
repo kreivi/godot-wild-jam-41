@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://contents/systems/button_prompt/tile_0505.png" type="Texture" id=1]
+[ext_resource path="res://contents/systems/button_prompt/tile_0233.png" type="Texture" id=2]
+[ext_resource path="res://contents/systems/button_prompt/button_prompt.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="AnimatedSprite" type="AnimatedSprite"]
+frames = SubResource( 1 )
+playing = true
+script = ExtResource( 3 )
+
+[node name="Key" type="Label" parent="."]
+anchor_left = 0.198
+anchor_top = 0.174
+anchor_right = 0.738
+anchor_bottom = 0.806
+margin_left = -8.168
+margin_top = -7.784
+margin_right = -7.808
+margin_bottom = -3.896
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A"
+__meta__ = {
+"_edit_use_anchors_": false
+}

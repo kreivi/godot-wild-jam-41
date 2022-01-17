@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://contents/entities/buoyant/base_buoyant.tscn" type="PackedScene" id=1]
 [ext_resource path="res://contents/entities/base_vessel/base_vessel.gd" type="Script" id=2]
@@ -10,7 +10,12 @@
 radius = 18.9999
 height = 72.0
 
+[sub_resource type="CircleShape2D" id=2]
+radius = 104.019
+
 [node name="BaseVessel" groups=["vessel"] instance=ExtResource( 1 )]
+collision_layer = 1
+collision_mask = 7
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" parent="." index="0"]
@@ -38,16 +43,26 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BowPosition" type="Position2D" parent="." index="5"]
+[node name="BowPosition" type="Position2D" parent="." index="4"]
 position = Vector2( 54, 1.13687e-13 )
 rotation = 1.5708
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AftPosition" type="Position2D" parent="." index="6"]
+[node name="AftPosition" type="Position2D" parent="." index="5"]
 position = Vector2( -54, -1.13687e-13 )
 rotation = 1.57079
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="ItemPickupArea" type="Area2D" parent="." index="6"]
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickupArea" index="0"]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="ItemPickupArea" to="." method="_on_ItemPickupArea_body_entered"]
+[connection signal="body_exited" from="ItemPickupArea" to="." method="_on_ItemPickupArea_body_exited"]

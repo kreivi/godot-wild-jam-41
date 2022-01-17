@@ -20,6 +20,12 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 
+func _unhandled_key_input(event: InputEventKey) -> void:
+	if Input.is_action_just_released("pickup"):
+		pickup_first()
+	pass
+
+
 ## Clamp input into accepted range.
 func _clamp_input(input: float) -> float:
 	return clamp(input, -1.0, 1.0)

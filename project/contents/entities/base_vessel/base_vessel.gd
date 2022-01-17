@@ -17,6 +17,8 @@ var sail_height := 0.0 setget set_sail_height
 ## Current position of the rudder.
 var rudder_position := 0.0 setget set_rudder_position
 
+var pickupables := []
+
 ## Reference to the rudder sprite
 onready var rudder_sprite: Sprite = $Rudder
 
@@ -55,8 +57,30 @@ func adjust_rudder(input: float) -> float:
 	return rudder_position
 
 
+func pickup_first() -> void:
+	if pickupables.size() > 0:
+		pickupables[0].queue_free()
+	pass
+
 func _process_rudder(delta: float) -> void:
 	# TODO: Do not rotaste if stationary
 	rotate(deg2rad(rudder_position * turn_speed * delta))
 	rudder_sprite.rotation_degrees = rudder_sprite_max_angle * -rudder_position
+	pass
+
+
+## Callback when body enters pickup range.
+func _on_ItemPickupArea_body_entered(body: Node) -> void:
+	if body.is_in_group("item"):
+		if body.has_method("toggle_pickup_prompt"):
+			body.call("toggle_pickup_prompt", true)
+		pickupables.append(body)
+	pass
+
+
+## Callback when body exits pickup range.
+func _on_ItemPickupArea_body_exited(body: Node) -> void:
+	pickupables.erase(body)
+	if body.has_method("toggle_pickup_prompt"):
+			body.call("toggle_pickup_prompt", false)
 	pass
