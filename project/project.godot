@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://contents/entities/base_item/base_item.gd"
 }, {
+"base": "StaticBody2D",
+"class": "BaseStaticBuoyant",
+"language": "GDScript",
+"path": "res://contents/entities/static_buoyant/base_static_buoyant.gd"
+}, {
 "base": "BaseBuoyant",
 "class": "BaseVessel",
 "language": "GDScript",
@@ -89,6 +94,111 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://contents/entities/player_vessel/player_vessel.gd"
 }, {
+"base": "Resource",
+"class": "RMS2D_Material",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/RMSmartShapeMaterial.gd"
+}, {
+"base": "Reference",
+"class": "RMS2D_VertexProperties",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/LEGACY_vertex_properties.gd"
+}, {
+"base": "Reference",
+"class": "RMS2D_VertexPropertiesArray",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/LEGACY_vertex_properties_array.gd"
+}, {
+"base": "Node2D",
+"class": "RMSmartShape2D",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/RMSmartShape2D.gd"
+}, {
+"base": "Node2D",
+"class": "RMSmartShapeAnchor2D",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/RMSmartShapeAnchor2D.gd"
+}, {
+"base": "Node",
+"class": "SS2D_Common_Functions",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/common_functions.gd"
+}, {
+"base": "Reference",
+"class": "SS2D_Edge",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/shapes/edge.gd"
+}, {
+"base": "Resource",
+"class": "SS2D_Material_Edge",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/materials/edge_material.gd"
+}, {
+"base": "Resource",
+"class": "SS2D_Material_Edge_Metadata",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/materials/edge_material_metadata.gd"
+}, {
+"base": "Resource",
+"class": "SS2D_Material_Shape",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/materials/shape_material.gd"
+}, {
+"base": "Reference",
+"class": "SS2D_Mesh",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/shapes/mesh.gd"
+}, {
+"base": "Resource",
+"class": "SS2D_NormalRange",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/normal_range.gd"
+}, {
+"base": "Resource",
+"class": "SS2D_Point",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/shapes/point.gd"
+}, {
+"base": "Resource",
+"class": "SS2D_Point_Array",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/shapes/point_array.gd"
+}, {
+"base": "Reference",
+"class": "SS2D_Quad",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/shapes/quad.gd"
+}, {
+"base": "Node2D",
+"class": "SS2D_Shape_Anchor",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/shapes/shape_anchor.gd"
+}, {
+"base": "Node2D",
+"class": "SS2D_Shape_Base",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/shapes/shape_base.gd"
+}, {
+"base": "SS2D_Shape_Base",
+"class": "SS2D_Shape_Closed",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/shapes/shape_closed.gd"
+}, {
+"base": "SS2D_Shape_Base",
+"class": "SS2D_Shape_Open",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/shapes/shape_open.gd"
+}, {
+"base": "Resource",
+"class": "SS2D_Strings",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/strings.gd"
+}, {
+"base": "Resource",
+"class": "SS2D_VertexProperties",
+"language": "GDScript",
+"path": "res://addons/rmsmartshape/vertex_properties.gd"
+}, {
 "base": "Node2D",
 "class": "SeaWorld",
 "language": "GDScript",
@@ -108,6 +218,7 @@ _global_script_class_icons={
 "Appender": "",
 "BaseBuoyant": "",
 "BaseItem": "",
+"BaseStaticBuoyant": "",
 "BaseVessel": "",
 "ButtonPrompt": "",
 "ConsoleAppender": "",
@@ -121,6 +232,27 @@ _global_script_class_icons={
 "Message": "",
 "PatternLayout": "",
 "PlayerVessel": "",
+"RMS2D_Material": "",
+"RMS2D_VertexProperties": "",
+"RMS2D_VertexPropertiesArray": "",
+"RMSmartShape2D": "res://addons/rmsmartshape/assets/LEGACY_shape.png",
+"RMSmartShapeAnchor2D": "res://addons/rmsmartshape/assets/LEGACY_shape_anchor.png",
+"SS2D_Common_Functions": "",
+"SS2D_Edge": "",
+"SS2D_Material_Edge": "",
+"SS2D_Material_Edge_Metadata": "",
+"SS2D_Material_Shape": "",
+"SS2D_Mesh": "",
+"SS2D_NormalRange": "",
+"SS2D_Point": "",
+"SS2D_Point_Array": "",
+"SS2D_Quad": "",
+"SS2D_Shape_Anchor": "res://addons/rmsmartshape/assets/Anchor.svg",
+"SS2D_Shape_Base": "",
+"SS2D_Shape_Closed": "res://addons/rmsmartshape/assets/closed_shape.png",
+"SS2D_Shape_Open": "res://addons/rmsmartshape/assets/open_shape.png",
+"SS2D_Strings": "",
+"SS2D_VertexProperties": "",
 "SeaWorld": "",
 "Trail": "",
 "Utils": ""
@@ -144,7 +276,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/gs_logger/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/gs_logger/plugin.cfg", "res://addons/rmsmartshape/plugin.cfg" )
 
 [input]
 
@@ -171,6 +303,11 @@ turn_port={
 pickup={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

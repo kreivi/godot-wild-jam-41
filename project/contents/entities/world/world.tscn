@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://contents/entities/player_vessel/player_vessel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://contents/entities/water/water.tscn" type="PackedScene" id=2]
 [ext_resource path="res://contents/systems/drifter_spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://contents/entities/world/world.gd" type="Script" id=4]
+[ext_resource path="res://contents/entities/item_barrel/item_barrel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://contents/entities/item_wood/item_wood.tscn" type="PackedScene" id=6]
+[ext_resource path="res://contents/entities/town_round/round_town.tscn" type="PackedScene" id=7]
+[ext_resource path="res://contents/entities/static_buoyant/base_static_buoyant.gd" type="Script" id=8]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 4 )
@@ -19,9 +23,16 @@ region_rect = Rect2( 0, 0, 8400, 5400 )
 
 [node name="Items" type="Node" parent="."]
 
+[node name="Towns" type="Node" parent="."]
+
+[node name="RoundTown" parent="Towns" groups=["static_buoyant"] instance=ExtResource( 7 )]
+position = Vector2( 2008, 498 )
+script = ExtResource( 8 )
+
 [node name="PlayerVessel2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 840, 540 )
 collision_mask = 1
 
 [node name="DrifterSpawner" parent="PlayerVessel2D" instance=ExtResource( 3 )]
+drifting_items = [ ExtResource( 6 ), ExtResource( 5 ) ]
 item_container = NodePath("../../Items")
