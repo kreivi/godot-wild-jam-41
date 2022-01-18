@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/appenders/console_appender.gd"
 }, {
+"base": "Node",
+"class": "DrifterSpawner",
+"language": "GDScript",
+"path": "res://contents/systems/drifter_spawner.gd"
+}, {
 "base": "BaseItem",
 "class": "DriftingItem",
 "language": "GDScript",
@@ -106,6 +111,7 @@ _global_script_class_icons={
 "BaseVessel": "",
 "ButtonPrompt": "",
 "ConsoleAppender": "",
+"DrifterSpawner": "",
 "DriftingItem": "",
 "FileAppender": "",
 "HUDRudder": "",
@@ -185,6 +191,8 @@ format.release="DEFAULT"
 [physics]
 
 common/enable_pause_aware_picking=true
+2d/default_linear_damp=0.3
+2d/default_angular_damp=0.3
 
 [rendering]
 

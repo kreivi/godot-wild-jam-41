@@ -63,8 +63,8 @@ func pickup_first() -> void:
 	pass
 
 func _process_rudder(delta: float) -> void:
-	# TODO: Do not rotaste if stationary
-	rotate(deg2rad(rudder_position * turn_speed * delta))
+	if velocity.length() > 0.05:
+		rotate(deg2rad(rudder_position * turn_speed * delta))
 	rudder_sprite.rotation_degrees = rudder_sprite_max_angle * -rudder_position
 	pass
 
