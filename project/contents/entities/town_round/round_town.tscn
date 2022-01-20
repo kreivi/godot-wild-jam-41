@@ -4,7 +4,7 @@
 [ext_resource path="res://addons/rmsmartshape/shapes/point.gd" type="Script" id=2]
 [ext_resource path="res://addons/rmsmartshape/vertex_properties.gd" type="Script" id=3]
 [ext_resource path="res://addons/rmsmartshape/shapes/point_array.gd" type="Script" id=4]
-[ext_resource path="res://contents/systems/button_prompt/button_prompt.tscn" type="PackedScene" id=5]
+[ext_resource path="res://contents/entities/town_round/round_town.gd" type="Script" id=5]
 
 [sub_resource type="ConcavePolygonShape2D" id=1]
 
@@ -145,23 +145,16 @@ _constraints = {
 _next_key = 4
 
 [node name="RoundTown" instance=ExtResource( 1 )]
-collision_layer = 4
-collision_mask = 9
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
 
-[node name="SS2D_Shape_Closed" parent="." index="1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+polygon = PoolVector2Array( -138, -297, -3, -310, 143, -274, 292, -129, 331, -9, 276, 177, 78, 325, -74, 353, -234, 292, -295, 129, -345, 10, -353, -153, -287, -250 )
+
+[node name="SS2D_Shape_Closed" parent="." index="3"]
 position = Vector2( -0.30426, -248.837 )
 _points = SubResource( 20 )
 material_overrides = {
 }
-
-[node name="AnimatedSprite" parent="SS2D_Shape_Closed" index="0" instance=ExtResource( 5 )]
-position = Vector2( 0.30426, -71.1628 )
-scale = Vector2( 5, 5 )
-frame = 1
-action_name = "interact"
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
-polygon = PoolVector2Array( -138, -297, -3, -310, 143, -274, 292, -129, 331, -9, 276, 177, 78, 325, -74, 353, -234, 292, -295, 129, -345, 10, -353, -153, -287, -250 )

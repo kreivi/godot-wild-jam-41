@@ -18,6 +18,7 @@ var sail_height := 0.0 setget set_sail_height
 var rudder_position := 0.0 setget set_rudder_position
 
 var pickupables := []
+var interactables := []
 
 ## Reference to the rudder sprite
 onready var rudder_sprite: Sprite = $Rudder
@@ -62,6 +63,11 @@ func pickup_first() -> void:
 		pickupables[0].queue_free()
 	pass
 
+
+func stop() -> void:
+	set_sail_height(0.0)
+	pass
+
 func _process_rudder(delta: float) -> void:
 	if velocity.length() > 0.05:
 		rotate(deg2rad(rudder_position * turn_speed * delta))
@@ -69,11 +75,21 @@ func _process_rudder(delta: float) -> void:
 	pass
 
 
+func _toggle_button_prompt(node: Node, toggle: bool) -> bool:
+	var ret = false
+	if node:
+		ret = node.has_method("toggle_button_prompt")
+		if ret:
+			node.call("toggle_button_prompt", toggle)
+		else:
+			Logger.warn(str("Couldn't toggle button prompt for: '" + node.name + "'"))
+	return ret
+	pass
+
 ## Callback when body enters pickup range.
 func _on_ItemPickupArea_body_entered(body: Node) -> void:
 	if body.is_in_group("item"):
-		if body.has_method("toggle_pickup_prompt"):
-			body.call("toggle_pickup_prompt", true)
+		_toggle_button_prompt(body, true)
 		pickupables.append(body)
 	pass
 
@@ -81,6 +97,19 @@ func _on_ItemPickupArea_body_entered(body: Node) -> void:
 ## Callback when body exits pickup range.
 func _on_ItemPickupArea_body_exited(body: Node) -> void:
 	pickupables.erase(body)
-	if body.has_method("toggle_pickup_prompt"):
-			body.call("toggle_pickup_prompt", false)
+	_toggle_button_prompt(body, false)
 	pass
+
+
+func _on_InteractionArea_body_entered(body: Node) -> void:
+	if body.is_in_group("town"):
+		_toggle_button_prompt(body, true)
+		interactables.append(body)
+	pass
+
+
+func _on_InteractionArea_body_exited(body: Node) -> void:
+	interactables.erase(body)
+	_toggle_button_prompt(body, false)
+	pass
+

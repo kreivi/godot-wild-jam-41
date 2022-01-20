@@ -23,8 +23,15 @@ func _physics_process(_delta: float) -> void:
 func _unhandled_key_input(event: InputEventKey) -> void:
 	if Input.is_action_just_released("pickup"):
 		pickup_first()
+	if Input.is_action_just_pressed("interact"):
+		if open_trade_window():
+			stop()
 	pass
 
+func open_trade_window() -> bool:
+	if interactables.size() > 0:
+		return true
+	return false
 
 ## Clamp input into accepted range.
 func _clamp_input(input: float) -> float:

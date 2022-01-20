@@ -9,7 +9,7 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 
-func toggle_pickup_prompt(toggle: bool) -> void:
+func toggle_button_prompt(toggle: bool) -> void:
 	if _pickup_prompt:
 		_pickup_prompt.visible = toggle
 	pass

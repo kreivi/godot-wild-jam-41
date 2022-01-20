@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://contents/entities/base_vessel/base_vessel.gd"
 }, {
+"base": "BaseStaticBuoyant",
+"class": "BuoyantTown",
+"language": "GDScript",
+"path": "res://contents/entities/buoyant_town/buoyant_town.gd"
+}, {
 "base": "AnimatedSprite",
 "class": "ButtonPrompt",
 "language": "GDScript",
@@ -118,6 +123,11 @@ _global_script_classes=[ {
 "class": "RMSmartShapeAnchor2D",
 "language": "GDScript",
 "path": "res://addons/rmsmartshape/RMSmartShapeAnchor2D.gd"
+}, {
+"base": "BuoyantTown",
+"class": "RoundTown",
+"language": "GDScript",
+"path": "res://contents/entities/town_round/round_town.gd"
 }, {
 "base": "Node",
 "class": "SS2D_Common_Functions",
@@ -220,6 +230,7 @@ _global_script_class_icons={
 "BaseItem": "",
 "BaseStaticBuoyant": "",
 "BaseVessel": "",
+"BuoyantTown": "",
 "ButtonPrompt": "",
 "ConsoleAppender": "",
 "DrifterSpawner": "",
@@ -237,6 +248,7 @@ _global_script_class_icons={
 "RMS2D_VertexPropertiesArray": "",
 "RMSmartShape2D": "res://addons/rmsmartshape/assets/LEGACY_shape.png",
 "RMSmartShapeAnchor2D": "res://addons/rmsmartshape/assets/LEGACY_shape_anchor.png",
+"RoundTown": "",
 "SS2D_Common_Functions": "",
 "SS2D_Edge": "",
 "SS2D_Material_Edge": "",
