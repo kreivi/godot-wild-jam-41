@@ -39,7 +39,7 @@ func set_rudder_position(value: float) -> void:
 ## Processing of the `BaseVessel`
 func _physics_process(delta: float) -> void:
 	_process_rudder(delta)
-	add_delta_velocity(transform.x * sail_height * 100)
+	add_delta_velocity(transform.x * sail_height * max_speed - velocity)
 	pass
 
 
@@ -68,6 +68,7 @@ func stop() -> void:
 	set_sail_height(0.0)
 	pass
 
+
 func _process_rudder(delta: float) -> void:
 	if velocity.length() > 0.05:
 		rotate(deg2rad(rudder_position * turn_speed * delta))
@@ -88,6 +89,8 @@ func _toggle_button_prompt(node: Node, toggle: bool) -> bool:
 
 ## Callback when body enters pickup range.
 func _on_ItemPickupArea_body_entered(body: Node) -> void:
+	if body == self:
+		return
 	if body.is_in_group("item"):
 		_toggle_button_prompt(body, true)
 		pickupables.append(body)
@@ -96,12 +99,16 @@ func _on_ItemPickupArea_body_entered(body: Node) -> void:
 
 ## Callback when body exits pickup range.
 func _on_ItemPickupArea_body_exited(body: Node) -> void:
+	if body == self:
+		return
 	pickupables.erase(body)
 	_toggle_button_prompt(body, false)
 	pass
 
 
 func _on_InteractionArea_body_entered(body: Node) -> void:
+	if body == self:
+		return
 	if body.is_in_group("town"):
 		_toggle_button_prompt(body, true)
 		interactables.append(body)
@@ -109,6 +116,8 @@ func _on_InteractionArea_body_entered(body: Node) -> void:
 
 
 func _on_InteractionArea_body_exited(body: Node) -> void:
+	if body == self:
+		return
 	interactables.erase(body)
 	_toggle_button_prompt(body, false)
 	pass

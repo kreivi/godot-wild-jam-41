@@ -9,3 +9,6 @@ script = ExtResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
 current = true
 process_mode = 0
+
+[node name="InteractionArea" parent="." index="8"]
+collision_mask = 15

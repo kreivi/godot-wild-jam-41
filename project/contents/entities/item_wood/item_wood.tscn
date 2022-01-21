@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 28.5 )
 
-[node name="ItemWood" groups=["buoyant"] instance=ExtResource( 1 )]
+[node name="ItemWood" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="." index="0"]
 rotation = 4.71238
@@ -20,3 +20,4 @@ shape = SubResource( 1 )
 
 [node name="PickupPrompt" parent="." index="2"]
 position = Vector2( 0, -19 )
+frame = 0

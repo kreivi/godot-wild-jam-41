@@ -277,9 +277,9 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/WATER_COL = Color( 0.0313726, 0.584314, 0.952941, 0.509804 )
-shader_param/WATER2_COL = Color( 0.027451, 0.545098, 0.890196, 0.509804 )
-shader_param/FOAM_COL = Color( 0.25098, 0.698039, 1, 0.486275 )
+shader_param/WATER_COL = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+shader_param/WATER2_COL = Color( 0.0705882, 0, 0.145098, 1 )
+shader_param/FOAM_COL = Color( 0, 0.129412, 0.121569, 1 )
 shader_param/distortion_speed = 2.0
 shader_param/tile = Vector2( 8, 8 )
 shader_param/wave_speed = 1.0
