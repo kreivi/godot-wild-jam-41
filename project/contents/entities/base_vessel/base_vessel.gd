@@ -42,7 +42,7 @@ func set_rudder_position(value: float) -> void:
 ## Processing of the `BaseVessel`
 func _physics_process(delta: float) -> void:
 	_process_rudder(delta)
-	add_delta_velocity(transform.x * sail_height * max_speed - velocity)
+	add_delta_velocity(transform.x * sail_height * max_speed)
 	pass
 
 
@@ -64,11 +64,15 @@ func adjust_rudder(input: float) -> float:
 func pickup_first() -> bool:
 	if _pickupables.size() > 0 && inventory.size() < inventory_max_size:
 		var first = _pickupables[0]
-		inventory.append(first.get_item_info())
-		_pickupables[0].queue_free()
+		inventory.append(ItemData.get_item_info_for_type((first as BaseItem).type))
+		first.queue_free()
 		return true
 	return false
 
+
+func remove_item_from_inventory(item) -> void:
+	inventory.erase(item)
+	pass
 
 func stop() -> void:
 	set_sail_height(0.0)
@@ -100,7 +104,6 @@ func _on_ItemPickupArea_body_entered(body: Node) -> void:
 	if body.is_in_group("item"):
 		_toggle_button_prompt(body, true)
 		_pickupables.append(body)
-		emit_signal("on_item_picked_up")
 	pass
 
 

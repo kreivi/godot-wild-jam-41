@@ -5,7 +5,4 @@
 
 [node name="DriftingItem" groups=["drifting"] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-max_speed = 20.0
-
-[node name="PickupPrompt" parent="." index="2"]
-frame = 1
+max_speed = 3.0

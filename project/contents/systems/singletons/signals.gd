@@ -8,4 +8,4 @@ signal sail_adjusted(new_value)
 
 
 ## Add item to player inventory gui
-signal add_item_to_player_inventory_hud(item)
+signal on_trade_initiated(player, post)

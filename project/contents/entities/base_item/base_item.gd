@@ -1,7 +1,7 @@
 class_name BaseItem
 extends BaseBuoyant
 
-enum ITEM_TYPES { UNKNOWN, BARREL, WOOD, PLASTIC}
+export var type: int = ItemData.ITEM_TYPES.UNKNOWN
 
 onready var _button_prompt := $PickupPrompt
 
@@ -16,10 +16,3 @@ func toggle_button_prompt(toggle: bool) -> void:
 		_button_prompt.visible = toggle
 	pass
 
-
-## Virtual function returns item information
-func get_item_info() -> Dictionary:
-	return {
-		"type": ITEM_TYPES.UNKNOWN,
-		"img": "",
-	}

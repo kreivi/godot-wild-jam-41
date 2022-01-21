@@ -30,6 +30,7 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 
 func open_trade_window() -> bool:
 	if _interactables.size() > 0:
+		Signals.emit_signal("on_trade_initiated", self, _interactables[0])
 		return true
 	return false
 

@@ -5,18 +5,18 @@
 [ext_resource path="res://contents/entities/item_barrel/item_barrel.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.5, 63 )
+extents = Vector2( 10, 20 )
 
 [node name="ItemBarrel" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 max_speed = 60.0
+type = 1
 
 [node name="Sprite" parent="." index="0"]
+scale = Vector2( 0.158, 0.156298 )
 texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 64, 128 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 7.62939e-06, -0.500211 )
 shape = SubResource( 1 )
-
-[node name="PickupPrompt" parent="." index="2"]
-frame = 0

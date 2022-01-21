@@ -25,12 +25,11 @@ region_rect = Rect2( 0, 0, 8400, 5400 )
 [node name="Posts" type="Node" parent="."]
 
 [node name="StaticBuoyantPost" parent="Posts" instance=ExtResource( 7 )]
-position = Vector2( 1199, 544 )
+position = Vector2( 1413, 675 )
 
-[node name="PlayerVessel2D" parent="." groups=["buoyant"] instance=ExtResource( 1 )]
+[node name="PlayerVessel2D" parent="." instance=ExtResource( 1 )]
 position = Vector2( 840, 540 )
 collision_mask = 1
-max_speed = 60.0
 
 [node name="DrifterSpawner" parent="PlayerVessel2D" instance=ExtResource( 3 )]
 drifting_items = [ ExtResource( 6 ), ExtResource( 5 ) ]
