@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://contents/gui/inventory/inventory.gd" type="Script" id=1]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+margin_right = 66.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 66.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "You have"
+align = 2
+uppercase = true
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_top = 18.0
+margin_right = 66.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+auto_height = true
+same_column_width = true

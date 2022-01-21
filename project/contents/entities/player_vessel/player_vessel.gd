@@ -29,7 +29,7 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 	pass
 
 func open_trade_window() -> bool:
-	if interactables.size() > 0:
+	if _interactables.size() > 0:
 		return true
 	return false
 

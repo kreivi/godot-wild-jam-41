@@ -2,7 +2,8 @@
 class_name BaseVessel
 extends BaseBuoyant
 
-var turn_speed = 15.0
+export var inventory_max_size := 4
+export var turn_speed = 15.0
 ## How fast is it to raise the sail
 export var sail_raise_speed := 0.0075
 ## How fast is it to lower the sail
@@ -17,8 +18,10 @@ var sail_height := 0.0 setget set_sail_height
 ## Current position of the rudder.
 var rudder_position := 0.0 setget set_rudder_position
 
-var pickupables := []
-var interactables := []
+var inventory := []
+
+var _pickupables := []
+var _interactables := []
 
 ## Reference to the rudder sprite
 onready var rudder_sprite: Sprite = $Rudder
@@ -58,10 +61,13 @@ func adjust_rudder(input: float) -> float:
 	return rudder_position
 
 
-func pickup_first() -> void:
-	if pickupables.size() > 0:
-		pickupables[0].queue_free()
-	pass
+func pickup_first() -> bool:
+	if _pickupables.size() > 0 && inventory.size() < inventory_max_size:
+		var first = _pickupables[0]
+		inventory.append(first.get_item_info())
+		_pickupables[0].queue_free()
+		return true
+	return false
 
 
 func stop() -> void:
@@ -93,7 +99,8 @@ func _on_ItemPickupArea_body_entered(body: Node) -> void:
 		return
 	if body.is_in_group("item"):
 		_toggle_button_prompt(body, true)
-		pickupables.append(body)
+		_pickupables.append(body)
+		emit_signal("on_item_picked_up")
 	pass
 
 
@@ -101,7 +108,7 @@ func _on_ItemPickupArea_body_entered(body: Node) -> void:
 func _on_ItemPickupArea_body_exited(body: Node) -> void:
 	if body == self:
 		return
-	pickupables.erase(body)
+	_pickupables.erase(body)
 	_toggle_button_prompt(body, false)
 	pass
 
@@ -111,14 +118,14 @@ func _on_InteractionArea_body_entered(body: Node) -> void:
 		return
 	if body.is_in_group("town"):
 		_toggle_button_prompt(body, true)
-		interactables.append(body)
+		_interactables.append(body)
 	pass
 
 
 func _on_InteractionArea_body_exited(body: Node) -> void:
 	if body == self:
 		return
-	interactables.erase(body)
+	_interactables.erase(body)
 	_toggle_button_prompt(body, false)
 	pass
 

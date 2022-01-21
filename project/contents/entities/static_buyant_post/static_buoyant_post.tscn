@@ -60,5 +60,4 @@ anims/rotate = SubResource( 3 )
 visible = false
 position = Vector2( 0, -184 )
 scale = Vector2( 4, 4 )
-frame = 1
 action_name = "interact"

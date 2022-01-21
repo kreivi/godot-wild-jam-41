@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://contents/gui/inventory/inventory.tscn" type="PackedScene" id=1]
+
+[node name="TradeWindow" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 757.0
+margin_top = 526.0
+margin_right = 922.0
+margin_bottom = 553.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PlayerInventory" parent="HBoxContainer" instance=ExtResource( 1 )]
+title = "You have"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 70.0
+margin_top = 3.0
+margin_right = 95.0
+margin_bottom = 23.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3"]
+margin_right = 25.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "->"
+
+[node name="PostInventory" parent="HBoxContainer" instance=ExtResource( 1 )]
+margin_left = 99.0
+margin_right = 165.0
