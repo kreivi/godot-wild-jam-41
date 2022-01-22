@@ -38,3 +38,4 @@ modulate = Color( 1, 1, 1, 0.66 )
 visible = false
 
 [node name="ColorRect" parent="GUILayer" instance=ExtResource( 5 )]
+visible = false
