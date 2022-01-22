@@ -12,7 +12,9 @@ var velocity := Vector2.ZERO
 ## Delta velocity
 var delta_velocity := Vector2.ZERO
 
-#onready var _trail := $Trail
+onready var _trail := $Trail
+onready var _trail_start_pos := $TrailStartPos
+
 
 ## Processing of the `BaseBuoyant`
 func _physics_process(delta: float) -> void:
@@ -20,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	velocity += delta_velocity
 	velocity = move_and_slide(velocity.clamped(max_speed))
 	_reset()
-#	_trail.add_point(global_position)
+	_trail.add_point(_trail_start_pos.global_position)
 	pass
 
 

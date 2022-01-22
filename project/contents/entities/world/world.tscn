@@ -16,9 +16,8 @@ script = ExtResource( 4 )
 [node name="Shallow" type="ParallaxLayer" parent="OceanBackground"]
 
 [node name="Water" parent="OceanBackground/Shallow" instance=ExtResource( 2 )]
-position = Vector2( 843, 537 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 8400, 5400 )
+region_rect = Rect2( 0, 0, 13440, 8640 )
 
 [node name="Items" type="Node" parent="."]
 
@@ -28,8 +27,9 @@ region_rect = Rect2( 0, 0, 8400, 5400 )
 position = Vector2( 1413, 675 )
 
 [node name="PlayerVessel2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 840, 540 )
+position = Vector2( 399, 663 )
 collision_mask = 1
+max_speed = 600.0
 
 [node name="DrifterSpawner" parent="PlayerVessel2D" instance=ExtResource( 3 )]
 drifting_items = [ ExtResource( 6 ), ExtResource( 5 ) ]

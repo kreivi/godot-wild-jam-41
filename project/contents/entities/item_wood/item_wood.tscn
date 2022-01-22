@@ -9,18 +9,20 @@ extents = Vector2( 7, 24 )
 
 [node name="ItemWood" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-max_speed = 60.0
+max_speed = 24.0
 type = 2
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 scale = Vector2( 0.48, 0.4 )
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 16, 64 )
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 0.499999, -2.02656e-06 )
 shape = SubResource( 1 )
 
-[node name="PickupPrompt" parent="." index="2"]
+[node name="PickupPrompt" parent="." index="3"]
 position = Vector2( 0, -19 )
-frame = 1
+
+[node name="TrailStartPos" parent="." index="4"]
+position = Vector2( -24, 0 )

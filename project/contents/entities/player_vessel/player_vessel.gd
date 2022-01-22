@@ -17,6 +17,12 @@ func _physics_process(_delta: float) -> void:
 	if not is_equal_approx(last_sail_height, sail_height):
 		last_sail_height = sail_height
 		Signals.emit_signal("sail_adjusted", last_sail_height)
+	
+	## Hack the player to loop around the world
+	if global_position.x <= -4900 or global_position.x >= 4900:
+		global_position.x *= -1
+	if global_position.y <= -3100 or global_position.y >= 3100:
+		global_position.y *= -1
 	pass
 
 

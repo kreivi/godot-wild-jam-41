@@ -10,5 +10,5 @@ script = ExtResource( 2 )
 current = true
 process_mode = 0
 
-[node name="InteractionArea" parent="." index="8"]
+[node name="InteractionArea" parent="." index="9"]
 collision_mask = 15

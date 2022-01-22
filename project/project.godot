@@ -308,7 +308,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="project"
+config/name="Unfantomable Brine"
+config/description="Your a sea captain abducted to do errands for Fish People. They promised to help you return to your life if you collect them enough resources from the ocean."
 run/main_scene="res://contents/systems/main/main.tscn"
 config/icon="res://icon.png"
 

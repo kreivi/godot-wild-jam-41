@@ -25,19 +25,22 @@ script = ExtResource( 2 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[node name="Rudder" type="Sprite" parent="." index="1"]
+[node name="Rudder" type="Sprite" parent="." index="2"]
 position = Vector2( -54, 0 )
 z_index = -1
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Hull" type="Sprite" parent="." index="2"]
+[node name="Hull" type="Sprite" parent="." index="3"]
 rotation = -1.57079
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sail" type="Sprite" parent="." index="3"]
+[node name="Sail" type="Sprite" parent="." index="4"]
 position = Vector2( 6, 0 )
 rotation = -1.57079
 scale = Vector2( 1, 0.5 )
@@ -46,33 +49,42 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BowPosition" type="Position2D" parent="." index="4"]
+[node name="BowPosition" type="Position2D" parent="." index="5"]
 position = Vector2( 54, 1.13687e-13 )
 rotation = 1.5708
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AftPosition" type="Position2D" parent="." index="5"]
+[node name="AftPosition" type="Position2D" parent="." index="6"]
 position = Vector2( -54, -1.13687e-13 )
 rotation = 1.57079
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ItemPickupArea" type="Area2D" parent="." index="6"]
+[node name="ItemPickupArea" type="Area2D" parent="." index="7"]
 collision_layer = 0
 collision_mask = 8
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickupArea" index="0"]
 shape = SubResource( 2 )
 
-[node name="InteractionArea" type="Area2D" parent="." index="7"]
+[node name="InteractionArea" type="Area2D" parent="." index="8"]
 collision_layer = 0
 collision_mask = 3
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0"]
 shape = SubResource( 3 )
+
+[node name="TrailStartPos" parent="." index="9"]
+position = Vector2( -61, 0 )
 
 [connection signal="body_entered" from="ItemPickupArea" to="." method="_on_ItemPickupArea_body_entered"]
 [connection signal="body_exited" from="ItemPickupArea" to="." method="_on_ItemPickupArea_body_exited"]

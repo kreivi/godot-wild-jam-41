@@ -9,14 +9,17 @@ extents = Vector2( 10, 20 )
 
 [node name="ItemBarrel" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
-max_speed = 60.0
+max_speed = 16.0
 type = 1
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" parent="." index="1"]
 scale = Vector2( 0.158, 0.156298 )
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 64, 128 )
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="2"]
 position = Vector2( 7.62939e-06, -0.500211 )
 shape = SubResource( 1 )
+
+[node name="TrailStartPos" parent="." index="4"]
+position = Vector2( -20, 0 )

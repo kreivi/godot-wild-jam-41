@@ -27,9 +27,10 @@ func _process(delta: float) -> void:
 	if _tick > tick_speed:
 		_tick = 0.0
 		for p in range(get_point_count()):
-			_point_ages[p] += 5*delta
-			var rand_vector := Vector2(rand_range(-_wild_speed, _wild_speed), rand_range(-_wild_speed, _wild_speed))
-			points[p] += rand_vector * wildness * _point_ages[p]
+			if _point_ages.size() > p:
+				_point_ages[p] += 5*delta
+				var rand_vector := Vector2(rand_range(-_wild_speed, _wild_speed), rand_range(-_wild_speed, _wild_speed))
+				points[p] += rand_vector * wildness * _point_ages[p]
 	else:
 		_tick += delta
 	pass
@@ -41,12 +42,14 @@ func stop() -> void:
 	_tween.start()
 	pass
 
+
 func _add_point(point_pos: Vector2, at_pos := -1) -> void:
 	if get_point_count() > 0 and point_pos.distance_to(points[get_point_count() - 1] ) < min_spawn_distance:
 		return
 	_point_ages.append(0.0)
-	add_point(point_pos, at_pos)
+	.add_point(point_pos, at_pos)
 	pass
+
 
 func _on_Decay_tween_all_completed() -> void:
 	queue_free()
