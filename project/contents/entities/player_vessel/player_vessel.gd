@@ -12,11 +12,11 @@ func _physics_process(_delta: float) -> void:
 	adjust_rudder(_get_rudder_input())
 	adjust_sails(_get_sail_input())
 	if not is_equal_approx(last_rudder_pos, rudder_position):
+		Signals.emit_signal("rudder_turned", rudder_position, last_rudder_pos)
 		last_rudder_pos = rudder_position
-		Signals.emit_signal("rudder_turned", last_rudder_pos)
 	if not is_equal_approx(last_sail_height, sail_height):
+		Signals.emit_signal("sail_adjusted", sail_height, last_sail_height)
 		last_sail_height = sail_height
-		Signals.emit_signal("sail_adjusted", last_sail_height)
 	
 	## Hack the player to loop around the world
 	if global_position.x <= -4900 or global_position.x >= 4900:
@@ -36,8 +36,9 @@ func _unhandled_key_input(event: InputEventKey) -> void:
 
 func open_trade_window() -> bool:
 	if _interactables.size() > 0:
-		Signals.emit_signal("on_trade_initiated", self, _interactables[0])
-		return true
+		if (_interactables[0] as StaticBuoyantPost).required_items.size() > 0:
+			Signals.emit_signal("on_trade_initiated", self, _interactables[0])
+			return true
 	return false
 
 ## Clamp input into accepted range.

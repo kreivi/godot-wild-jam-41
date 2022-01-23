@@ -18,3 +18,8 @@ rotation = 1.5708
 [node name="PickupPrompt" parent="." index="2" instance=ExtResource( 3 )]
 visible = false
 action_name = "pickup"
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." index="4"]
+bus = "Sfx"
+
+[connection signal="finished" from="PickupSound" to="." method="_on_PickupSound_finished"]

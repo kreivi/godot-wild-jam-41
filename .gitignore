@@ -11,3 +11,5 @@ data_*/
 *.webp
 *.png~
 *.kra
+export/
+media/

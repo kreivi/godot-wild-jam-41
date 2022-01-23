@@ -333,6 +333,10 @@ window/size/height=1080
 
 enabled=PoolStringArray( "res://addons/gs_logger/plugin.cfg", "res://addons/rmsmartshape/plugin.cfg" )
 
+[global]
+
+window=false
+
 [input]
 
 raise_sail={

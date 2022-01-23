@@ -8,17 +8,19 @@ var required_items := []
 
 
 onready var _sink_tween := $SinkTween
+onready var _proximity_sfx := $ProximitySFX
 
 func _ready() -> void:
 	required_items = _shuffle_items()
-	sink_to_ocean()
 	pass
 
 
 func remove_item_from_required(item) -> void:
 	required_items.erase(item)
 	if required_items.size() <= 0:
+		toggle_button_prompt(false)
 		sink_to_ocean()
+		Signals.emit_signal("on_trade_close")
 	pass
 
 func toggle_button_prompt(toggle: bool) -> void:
@@ -47,4 +49,15 @@ func sink_to_ocean() -> void:
 
 func _on_SinkTween_tween_all_completed() -> void:
 	queue_free()
+	pass
+
+
+func _on_ProximitySFX_finished() -> void:
+	_proximity_sfx.play()
+	pass
+
+
+func _on_SinkTween_tween_step(object: Object, key: NodePath, elapsed: float, value: Object) -> void:
+	_proximity_sfx.pitch_scale = 1.0+sinh(elapsed)
+	_proximity_sfx.volume_db = -(elapsed * 4)
 	pass

@@ -1,7 +1,7 @@
 class_name ItemData
 extends Node
 
-enum ITEM_TYPES { UNKNOWN, BARREL, WOOD, PLASTIC}
+enum ITEM_TYPES { UNKNOWN, BARREL, WOOD}
 
 static func get_item_info_for_type(type: int) -> Dictionary:
 	match type:
@@ -17,12 +17,12 @@ static func get_item_info_for_type(type: int) -> Dictionary:
 				"name": "Wood",
 				"img": "res://contents/entities/item_wood/t_log_a.png",
 			}
-		ITEM_TYPES.PLASTIC:
-			return {
-					"type": ITEM_TYPES.PLASTIC,
-					"name": "Plastic",
-					"img": "",
-			}
+#		ITEM_TYPES.PLASTIC:
+#			return {
+#					"type": ITEM_TYPES.PLASTIC,
+#					"name": "Plastic",
+#					"img": "",
+#			}
 	return {
 		"type": ITEM_TYPES.UNKNOWN,
 		"name": "Unknown",

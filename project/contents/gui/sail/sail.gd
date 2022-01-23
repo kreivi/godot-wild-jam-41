@@ -11,6 +11,6 @@ func _ready() -> void:
 	pass
 
 
-func _on_sail_adjusted(new_value: float) -> void:
+func _on_sail_adjusted(new_value: float, _previous_value: float) -> void:
 	rect_position.y = 1080 - new_value * sail_height
 	pass

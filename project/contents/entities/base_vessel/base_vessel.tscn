@@ -25,6 +25,9 @@ script = ExtResource( 2 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
+[node name="TrailStartPos" parent="." index="1"]
+position = Vector2( -61, 0 )
+
 [node name="Rudder" type="Sprite" parent="." index="2"]
 position = Vector2( -54, 0 )
 z_index = -1
@@ -82,9 +85,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" index="0"]
 shape = SubResource( 3 )
-
-[node name="TrailStartPos" parent="." index="9"]
-position = Vector2( -61, 0 )
 
 [connection signal="body_entered" from="ItemPickupArea" to="." method="_on_ItemPickupArea_body_entered"]
 [connection signal="body_exited" from="ItemPickupArea" to="." method="_on_ItemPickupArea_body_exited"]

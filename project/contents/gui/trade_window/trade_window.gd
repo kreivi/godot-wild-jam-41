@@ -9,6 +9,7 @@ var _post: StaticBuoyantPost
 
 func _ready() -> void:
 	Signals.connect("on_trade_initiated", self, "_on_trade_initiated")
+	Signals.connect("on_trade_close", self, "_on_trade_close")
 	pass
 
 
@@ -20,11 +21,15 @@ func _on_trade_initiated(vessel: BaseVessel, post: StaticBuoyantPost) -> void:
 	_post_inv.set_items(_post.required_items)
 	pass
 
-
-func _on_CloseButton_pressed() -> void:
+func _close() -> void:
 	visible = false
 	_vessel = null
 	_post = null
+	pass
+
+
+func _on_CloseButton_pressed() -> void:
+	_close()
 	pass
 
 
@@ -40,4 +45,9 @@ func _on_GiveButton_pressed() -> void:
 					_player_inv.remove_with_index(i)
 					_post_inv.remove_with_name(p_item["name"])
 					break
+	pass
+
+
+func _on_trade_close() -> void:
+	_close()
 	pass

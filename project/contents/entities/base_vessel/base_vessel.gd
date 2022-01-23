@@ -64,8 +64,8 @@ func adjust_rudder(input: float) -> float:
 func pickup_first() -> bool:
 	if _pickupables.size() > 0 && inventory.size() < inventory_max_size:
 		var first = _pickupables[0]
+		(first as BaseItem).play_pickup_sfx()
 		inventory.append(ItemData.get_item_info_for_type((first as BaseItem).type))
-		first.queue_free()
 		return true
 	return false
 

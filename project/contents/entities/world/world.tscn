@@ -14,6 +14,9 @@ script = ExtResource( 4 )
 [node name="OceanBackground" type="ParallaxBackground" parent="."]
 
 [node name="Shallow" type="ParallaxLayer" parent="OceanBackground"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Water" parent="OceanBackground/Shallow" instance=ExtResource( 2 )]
 region_enabled = true
@@ -25,9 +28,24 @@ region_rect = Rect2( 0, 0, 13440, 8640 )
 
 [node name="StaticBuoyantPost" parent="Posts" instance=ExtResource( 7 )]
 position = Vector2( 797, 675 )
+required_items_amount = 2
+
+[node name="StaticBuoyantPost2" parent="Posts" instance=ExtResource( 7 )]
+position = Vector2( 3266, -1170 )
+required_items_amount = 4
+
+[node name="StaticBuoyantPost3" parent="Posts" instance=ExtResource( 7 )]
+position = Vector2( 4808, 2963 )
+required_items_amount = 2
+
+[node name="StaticBuoyantPost4" parent="Posts" instance=ExtResource( 7 )]
+position = Vector2( -4374, 776 )
+
+[node name="StaticBuoyantPost5" parent="Posts" instance=ExtResource( 7 )]
+position = Vector2( -1693, -3074 )
 required_items_amount = 1
 
-[node name="PlayerVessel2D" parent="." instance=ExtResource( 1 )]
+[node name="PlayerVessel2D" parent="." groups=["buoyant"] instance=ExtResource( 1 )]
 position = Vector2( 399, 663 )
 collision_mask = 1
 max_speed = 100.0
@@ -35,3 +53,10 @@ max_speed = 100.0
 [node name="DrifterSpawner" parent="PlayerVessel2D" instance=ExtResource( 3 )]
 drifting_items = [ ExtResource( 6 ), ExtResource( 5 ) ]
 item_container = NodePath("../../Items")
+
+[node name="WindHowlingSFX" type="AudioStreamPlayer" parent="."]
+
+[node name="WindHowlTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="WindHowlTimer" to="." method="_on_WindHowlTimer_timeout"]

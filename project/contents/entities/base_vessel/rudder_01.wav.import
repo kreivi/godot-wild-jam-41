@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rudder_01.wav-999a052899bb8f65cde2f9df8dd592bb.sample"
+
+[deps]
+
+source_file="res://contents/entities/base_vessel/rudder_01.wav"
+dest_files=[ "res://.import/rudder_01.wav-999a052899bb8f65cde2f9df8dd592bb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

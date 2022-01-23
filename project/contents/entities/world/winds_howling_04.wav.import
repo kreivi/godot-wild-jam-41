@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/winds_howling_04.wav-496d5156ccec0094d08e19dca4e04171.sample"
+
+[deps]
+
+source_file="res://contents/entities/world/winds_howling_04.wav"
+dest_files=[ "res://.import/winds_howling_04.wav-496d5156ccec0094d08e19dca4e04171.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
